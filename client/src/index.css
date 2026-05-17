@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+  body {
+    background-color: #0A0A0F;
+    color: #E2E2F0;
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+  }
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: #111118; }
+  ::-webkit-scrollbar-thumb { background: #7C3AED; border-radius: 2px; }
+}
+
+@layer components {
+  .glass {
+    background: rgba(22, 22, 31, 0.8);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(124, 58, 237, 0.15);
+  }
+  .btn-primary {
+    @apply bg-echo-accent hover:bg-echo-accent-light text-white font-display font-semibold px-6 py-3 rounded-xl transition-all duration-200 hover:shadow-lg hover:shadow-echo-accent-glow active:scale-95;
+  }
+  .btn-ghost {
+    @apply bg-transparent hover:bg-echo-border text-echo-text border border-echo-border hover:border-echo-accent font-display font-medium px-6 py-3 rounded-xl transition-all duration-200;
+  }
+  .input-field {
+    @apply bg-echo-surface border border-echo-border text-echo-text placeholder-echo-muted rounded-xl px-4 py-3 w-full focus:outline-none focus:border-echo-accent transition-colors duration-200;
+  }
+  .card {
+    @apply bg-echo-card border border-echo-border rounded-2xl p-4 hover:border-echo-accent transition-all duration-200;
+  }
+  .song-card {
+    @apply bg-echo-card border border-echo-border rounded-2xl overflow-hidden hover:border-echo-accent hover:shadow-lg hover:shadow-echo-accent-glow transition-all duration-300 cursor-pointer ;
+  }
+  .sidebar-link {
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl text-echo-muted hover:text-echo-text hover:bg-echo-border transition-all duration-200 font-body font-medium;
+  }
+  .sidebar-link.active {
+    @apply text-echo-accent bg-echo-accent-glow border border-echo-accent border-opacity-30;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(135deg, #9F67FF, #7C3AED);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .glow {
+    box-shadow: 0 0 30px rgba(124, 58, 237, 0.3);
+  }
+}
+
+/* Progress bar */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  background: #1E1E2E;
+  border-radius: 2px;
+  outline: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  background: #7C3AED;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.3);
+}
